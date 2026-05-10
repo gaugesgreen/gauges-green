@@ -12,5 +12,5 @@ Setup complete.
 
 Try:
   ./gg demo
-  python3 -m harness.boot --agent demo
+  .venv/bin/python -m harness.boot --agent demo
 MSG

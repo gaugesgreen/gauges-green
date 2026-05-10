@@ -3,13 +3,20 @@ set -euo pipefail
 
 root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$root"
+if [ -z "${PYTHON:-}" ]; then
+  if [ -x ".venv/bin/python" ]; then
+    PYTHON=".venv/bin/python"
+  else
+    PYTHON="python3"
+  fi
+fi
 
 echo "== tests =="
-python3 -m pytest
+"$PYTHON" -m pytest
 
 echo "== smoke =="
-python3 -m harness.boot --agent demo >/tmp/gg-harness-boot-smoke.md
-if python3 -m harness.gates examples/agent-output-bad.md >/tmp/gg-harness-bad-gate.txt 2>&1; then
+"$PYTHON" -m harness.boot --agent demo >/tmp/gg-harness-boot-smoke.md
+if "$PYTHON" -m harness.gates examples/agent-output-bad.md >/tmp/gg-harness-bad-gate.txt 2>&1; then
   echo "expected bad fixture to fail gates" >&2
   exit 1
 fi
@@ -24,6 +31,9 @@ blocked_paths="$(find . -not -path './.git/*' -not -path './.venv/*' -not -path 
   -name 'drafts' -o \
   -name 'trips' -o \
   -name 'Family_Recipes.md' -o \
+  -name '*transcript*real*' -o \
+  -name '*contacts*real*' -o \
+  -name '*memory*real*' -o \
   -path './memory' -o \
   -path './memory/*' -o \
   -path './gauges-green/proposals' -o \
@@ -36,7 +46,7 @@ if [ -n "$blocked_paths" ]; then
 fi
 
 if rg -n --hidden --glob '!.git/**' --glob '!.venv/**' --glob '!*.egg-info/**' --glob '!scripts/preflight.sh' \
-  '(/Users/eberhard/clawd|eberhard@|CONTACTS\.md|MEMORY\.md|memory\.bak|agents_archived|config/.*(token|credential|whatsapp|gmail)|gauges-green/proposals|voice-samples\.jsonl)' .; then
+  '(/Users/eberhard/clawd|/Users/eberhard/Obsidian-Vault|eberhard@|CONTACTS\.md|MEMORY\.md|memory\.bak|agents_archived|config/.*(token|credential|whatsapp|gmail)|gauges-green/proposals|voice-samples\.jsonl|refresh_token|client_secret|xox[baprs]-|gh[pousr]_[A-Za-z0-9_]+)' .; then
   echo "hard privacy pattern found" >&2
   exit 1
 fi

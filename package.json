@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "python3 -m pytest",
+    "test": ".venv/bin/python -m pytest",
     "demo": "./gg demo",
     "preflight": "./scripts/preflight.sh"
   }

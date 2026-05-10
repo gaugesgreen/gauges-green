@@ -16,13 +16,23 @@ This is the production shape, extracted into a public repo you can run safely.
 ```bash
 ./setup
 ./gg demo
-python3 -m harness.boot --agent demo
-python3 -m harness.gates examples/agent-output-bad.md
-python3 -m pytest
 ```
 
-The bad-output gate command is expected to exit non-zero because it catches
-unsupported claims in the fixture.
+Then run the pieces directly:
+
+```bash
+.venv/bin/python -m harness.boot --agent demo
+.venv/bin/python -m pytest
+```
+
+To see a gate catch bad output:
+
+```bash
+.venv/bin/python -m harness.gates examples/agent-output-bad.md || true
+```
+
+That command is expected to exit non-zero because it catches unsupported claims
+in the fixture.
 
 ## Highlights
 
@@ -56,13 +66,15 @@ the first-message context for an agent session.
 - Live credentials or communication configuration
 - Private source repository history
 
+The publication boundary is permanent. See `PUBLICATION_POLICY.md`.
+
 ## Development
 
 ```bash
-python3 -m pytest
-python3 -m harness.boot --agent demo
-python3 -m harness.gates examples/agent-output-good.md
-python3 -m harness.gates examples/agent-output-bad.md
+.venv/bin/python -m pytest
+.venv/bin/python -m harness.boot --agent demo
+.venv/bin/python -m harness.gates examples/agent-output-good.md
+.venv/bin/python -m harness.gates examples/agent-output-bad.md || true
 ./scripts/preflight.sh
 ```
 

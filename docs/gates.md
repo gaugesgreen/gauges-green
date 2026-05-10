@@ -10,6 +10,6 @@ The v0.1 gate stack is intentionally small:
 Run it with:
 
 ```bash
-python3 -m harness.gates examples/agent-output-good.md
-python3 -m harness.gates examples/agent-output-bad.md
+.venv/bin/python -m harness.gates examples/agent-output-good.md
+.venv/bin/python -m harness.gates examples/agent-output-bad.md || true
 ```

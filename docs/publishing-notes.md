@@ -3,7 +3,7 @@
 Before public push:
 
 ```bash
-python3 -m pytest
+.venv/bin/python -m pytest
 ./scripts/preflight.sh
 git log --oneline --all
 ```
