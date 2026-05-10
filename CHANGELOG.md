@@ -2,7 +2,7 @@
 
 ## v0.1.0 - 2026-05-10
 
-Initial public extraction of the Gauges Green harness.
+Initial public extraction of Gauges Green.
 
 - Synthetic demo agent with identity, operating rules, tool contracts, memory,
   commitments, contacts, and transcript fixtures.

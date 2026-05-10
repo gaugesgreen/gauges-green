@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gauges-green-harness"
+name = "gauges-green"
 version = "0.1.0"
 description = "Public, synthetic extraction of the Gauges Green agent harness"
 readme = "README.md"
