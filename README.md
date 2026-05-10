@@ -1,5 +1,7 @@
 # Gauges Green Harness
 
+[![CI](https://github.com/reberhard/gauges-green-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/reberhard/gauges-green-harness/actions/workflows/ci.yml)
+
 Production-shaped agent operating harness extracted into a safe public demo.
 
 This is the public extraction of the production harness we run inside Gauges
