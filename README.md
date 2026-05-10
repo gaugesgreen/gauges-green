@@ -44,6 +44,9 @@ in the fixture.
 - Claude Code hook examples
 - docs for Pulse, Critique, Pluma, Scribe, briefs, avisos, and evals
 
+Planned next: `./gg run-demo`, a single-command synthetic walkthrough of the
+full boot -> draft -> gates -> scorecard loop. See `docs/run-demo-spec.md`.
+
 ## Demo Agent
 
 The `agents/demo` agent loads identity from `SOUL.md`, operating rules from
