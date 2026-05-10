@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gauges-green-harness"
+version = "0.1.0"
+description = "Public, synthetic extraction of the Gauges Green agent harness"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Gauges Green"}]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+gg = "harness.cli.gg:main"
+
+[tool.setuptools.packages.find]
+include = ["harness*"]

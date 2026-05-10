@@ -1,0 +1,10 @@
+{
+  "name": "gauges-green-harness",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "python3 -m pytest",
+    "demo": "./gg demo",
+    "preflight": "./scripts/preflight.sh"
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Avery Stone",
+    "email": "avery.stone@example.com",
+    "phone": "+15550101234",
+    "company": "Riverbend Example Co"
+  },
+  {
+    "name": "Morgan Vale",
+    "email": "morgan.vale@example.com",
+    "phone": "+15550105678",
+    "company": "Northstar Demo Labs"
+  }
+]

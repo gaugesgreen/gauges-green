@@ -1,0 +1,2 @@
+{"id":"commit-demo-001","owner":"Morgan Vale","due":"2030-04-15","status":"open","summary":"Confirm boot manifest sources are synthetic."}
+{"id":"commit-demo-002","owner":"Riley Chen","due":"2030-04-16","status":"open","summary":"Review the gate output for the bad fixture."}

@@ -1,0 +1,36 @@
+{
+  "agent": "demo",
+  "summary": "Synthetic demo boot manifest for the public Gauges Green harness.",
+  "sources": [
+    {
+      "label": "Identity",
+      "path": "SOUL.md"
+    },
+    {
+      "label": "Operating Rules",
+      "path": "AGENTS.md"
+    },
+    {
+      "label": "Tool Contracts",
+      "path": "TOOLS.md"
+    },
+    {
+      "label": "Working Context",
+      "path": "memory/working-context.md",
+      "max_chars": 4000
+    },
+    {
+      "label": "Contacts",
+      "path": "memory/contacts.md"
+    },
+    {
+      "label": "Commitments",
+      "path": "memory/commitments.jsonl"
+    },
+    {
+      "label": "Meeting Transcript",
+      "path": "../../examples/meeting-transcript.md",
+      "max_chars": 3000
+    }
+  ]
+}
