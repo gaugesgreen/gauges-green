@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/gaugesgreen/gauges-green/actions/workflows/ci.yml/badge.svg)](https://github.com/gaugesgreen/gauges-green/actions/workflows/ci.yml)
 
-Production-shaped agent operating harness, extracted into a public-safe demo.
+Production-grade agent operating harness, extracted into a public-safe demo.
 
 This is the public extraction of the harness we run inside Gauges Green. The
 architecture, gates, scorecards, and agent patterns are real. Private client
