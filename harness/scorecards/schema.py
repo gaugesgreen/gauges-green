@@ -64,7 +64,7 @@ def demo_row() -> ScorecardRow:
             PillarScore(
                 key="reliability",
                 grade="A-",
-                evidence="Boot manifest compiled from six synthetic sources without missing required files.",
+                evidence="Boot manifest compiled from seven synthetic sources without missing required files.",
             ),
             PillarScore(
                 key="governance",

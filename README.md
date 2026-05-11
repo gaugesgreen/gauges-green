@@ -2,12 +2,19 @@
 
 [![CI](https://github.com/gaugesgreen/gauges-green/actions/workflows/ci.yml/badge.svg)](https://github.com/gaugesgreen/gauges-green/actions/workflows/ci.yml)
 
-Production-grade agent operating harness, extracted into a public-safe demo.
+A public-safe demo of the AI operating harness Gauges Green uses to run a
+senior-operator practice.
 
-This is the public extraction of the harness we run inside Gauges Green. The
-architecture, gates, scorecards, and agent patterns are real. Private client
-data, live credentials, and personal memory stores have been replaced with
-synthetic examples.
+![Compiled context flow](https://www.gaugesgreen.com/harness/story-compiled-context.svg)
+
+Independent client work creates a second job around the work: context, meeting
+prep, follow-ups, proposals, billing, collections, pipeline, and quality control.
+
+This repo shows the harness shape behind that work. It compiles context before
+an agent starts, gates output before it leaves, and records scorecard evidence
+over time.
+
+The architecture is real. The data is synthetic.
 
 ## Why This Exists
 
@@ -19,19 +26,17 @@ Gauges Green starts from the opposite direction. The agent is only one part of
 the operating system. The harness supplies context, tools, gates, scorecards,
 and publication boundaries around it.
 
-GStack gives coding agents structured roles and workflows. OpenClaw gives
-personal agents local surfaces and message routing. Gauges Green is the
-production-shaped harness for operator work: client context in, governed work
-out, evidence attached.
-
 ## See It Work
 
 ```bash
 ./setup
-./gg demo
+./gg run-demo
 ```
 
-Then run the pieces directly:
+That prints a compact walkthrough: fixture load, boot compilation, bad draft
+blocked by gates, corrected draft passed, and a scorecard row.
+
+You can also run the pieces directly:
 
 ```bash
 .venv/bin/python -m harness.boot --agent demo
@@ -57,9 +62,6 @@ in the fixture.
 - Claude Code hook examples
 - Docs for Pulse, Critique, Pluma, Scribe, briefs, avisos, and evals
 
-Planned next: `./gg run-demo`, a single-command walkthrough of the full boot,
-draft, gates, and scorecard loop. See `docs/run-demo-spec.md`.
-
 ## Core Loop
 
 1. Compile context before the agent starts.
@@ -72,6 +74,12 @@ The demo agent loads identity from `SOUL.md`, operating rules from `AGENTS.md`,
 tool contracts from `TOOLS.md`, and synthetic context from its boot manifest.
 The compiled boot payload is printed to stdout and can also be used as the
 first-message context for an agent session.
+
+## How This Relates To GStack And OpenClaw
+
+GStack gives coding agents structured roles and workflows. OpenClaw gives
+personal agents local surfaces and message routing. Gauges Green is the
+operator-work layer: client context in, governed work out, evidence attached.
 
 ## What Is In This Repo
 
@@ -94,6 +102,7 @@ The publication boundary is permanent. See `PUBLICATION_POLICY.md`.
 
 ```bash
 .venv/bin/python -m pytest
+.venv/bin/python -m harness.cli.gg run-demo
 .venv/bin/python -m harness.boot --agent demo
 .venv/bin/python -m harness.gates examples/agent-output-good.md
 .venv/bin/python -m harness.gates examples/agent-output-bad.md || true

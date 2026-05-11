@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 
 from harness.boot.compiler import BootCompiler
+from harness.demo.workflow import render_report, run_demo
 from harness.gates.runner import run_gates
 from harness.scorecards.schema import demo_row
 
@@ -14,6 +15,8 @@ def main(argv: list[str] | None = None) -> int:
 
     demo_parser = subparsers.add_parser("demo", help="run the synthetic demo")
     demo_parser.add_argument("--agent", default="demo")
+
+    subparsers.add_parser("run-demo", help="run the guided synthetic walkthrough")
 
     boot_parser = subparsers.add_parser("boot", help="compile a boot payload")
     boot_parser.add_argument("--agent", default="demo")
@@ -27,6 +30,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "demo":
         return _demo(args.agent)
+    if args.command == "run-demo":
+        report = run_demo(Path.cwd())
+        print(render_report(report), end="")
+        return 0 if report.ok else 1
     if args.command == "boot":
         print(BootCompiler().render(args.agent), end="")
         return 0

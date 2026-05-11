@@ -1,6 +1,6 @@
 # `gg run-demo` Spec
 
-Status: Planned for v0.1.1
+Status: Shipped in v0.1.1
 
 ## Purpose
 
