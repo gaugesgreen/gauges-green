@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added `gg meeting-prep`, a public-safe synthetic meeting prep feature that
+  turns the demo calendar, prior transcript, and commitments into a sourced
+  pre-meeting brief.
+
 ## v0.1.0 - 2026-05-10
 
 Initial public extraction of Gauges Green.

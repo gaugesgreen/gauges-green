@@ -6,6 +6,7 @@ from pathlib import Path
 from harness.boot.compiler import BootCompiler
 from harness.demo.workflow import render_report, run_demo
 from harness.gates.runner import run_gates
+from harness.meeting_prep.workflow import build_meeting_prep, render_brief
 from harness.scorecards.schema import demo_row
 
 
@@ -17,6 +18,11 @@ def main(argv: list[str] | None = None) -> int:
     demo_parser.add_argument("--agent", default="demo")
 
     subparsers.add_parser("run-demo", help="run the guided synthetic walkthrough")
+
+    meeting_prep_parser = subparsers.add_parser(
+        "meeting-prep", help="build a synthetic meeting prep brief"
+    )
+    meeting_prep_parser.add_argument("--event-id")
 
     boot_parser = subparsers.add_parser("boot", help="compile a boot payload")
     boot_parser.add_argument("--agent", default="demo")
@@ -34,6 +40,10 @@ def main(argv: list[str] | None = None) -> int:
         report = run_demo(Path.cwd())
         print(render_report(report), end="")
         return 0 if report.ok else 1
+    if args.command == "meeting-prep":
+        brief = build_meeting_prep(Path.cwd(), event_id=args.event_id)
+        print(render_brief(brief), end="")
+        return 0
     if args.command == "boot":
         print(BootCompiler().render(args.agent), end="")
         return 0

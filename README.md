@@ -36,6 +36,16 @@ and publication boundaries around it.
 That prints a compact walkthrough: fixture load, boot compilation, bad draft
 blocked by gates, corrected draft passed, and a scorecard row.
 
+To see the meeting prep feature:
+
+```bash
+./gg meeting-prep
+```
+
+That prints a synthetic pre-meeting brief from the demo calendar, prior meeting
+transcript, and open commitments. It is public-safe: the feature uses only
+fixtures committed under `examples/` and `agents/demo/memory/`.
+
 You can also run the pieces directly:
 
 ```bash
@@ -56,6 +66,7 @@ in the fixture.
 
 - `gg` launcher
 - Boot manifest compiler
+- Meeting prep brief from synthetic calendar, transcript, and commitments
 - Synthetic demo agent
 - Gate stack examples
 - Scorecard schema and grade arithmetic
